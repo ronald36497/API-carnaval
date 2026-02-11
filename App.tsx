@@ -1,45 +1,31 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { useColorScheme, StatusBar } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { PaperProvider } from 'react-native-paper';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+// Importe seus Providers e as Rotas
+import { FavoritesProvider } from './src/context/FavoritesContext';
+import Routes from './src/routes'; 
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      {/* PaperProvider garante que os componentes do react-native-paper funcionem */}
+      <PaperProvider>
+        {/* FavoritesProvider deixa os favoritos disponíveis em todo o app */}
+        {/* <FavoritesProvider> */}
+          <StatusBar 
+            barStyle={isDarkMode ? 'light-content' : 'dark-content'} 
+            backgroundColor="transparent" 
+            translucent 
+          />
+          <Routes />
+        {/* </FavoritesProvider> */}
+      </PaperProvider>
     </SafeAreaProvider>
   );
 }
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
