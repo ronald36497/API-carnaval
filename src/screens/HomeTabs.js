@@ -6,7 +6,7 @@ import CustomTabBar from '../components/CustomTabBar';
 // Importe as telas das pastas que criamos no começo
 import Home from './Home'; // Verifique se dentro de Home tem um index.js
 import Buscar from './Buscar';
-import Favoritos from './Favoritos';
+import Favoritos from './Favoritos/index';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,8 +21,8 @@ const HomeTabs = () => {
         screenOptions={{ headerShown: false }}
       >
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Buscar" component={Buscar} />
-        <Tab.Screen name="Evento" component={Favoritos} />
+        {/* <Tab.Screen name="Buscar" component={Buscar} /> */}
+        <Tab.Screen name="Favorito" component={Favoritos} />
         {/* <Tab.Screen name="Perfil" component={Configuracao} /> */}
       </Tab.Navigator>
     </TabBarVisibilityProvider>

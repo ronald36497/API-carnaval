@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeTabs from '../screens/HomeTabs'; // Componente que une as 4 abas
+import BlocoDetails from '../screens/Home/BlocoDetalhes';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ export default function Routes() {
       >
         {/* Rota principal com as abas animadas */}
         <Stack.Screen name="Main" component={HomeTabs} />
+        <Stack.Screen name="BlocoDetails" component={BlocoDetails} />
 
         {/* Tela de Detalhes (Abre por cima de tudo) */}
       </Stack.Navigator>

@@ -122,7 +122,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               case 'Buscar':
                 iconName = isFocused ? 'search' : 'search-outline';
                 break;
-              case 'Evento': // Nossa aba de favoritos
+              case 'Favorito': // Nossa aba de favoritos
                 iconName = isFocused ? 'heart' : 'heart-outline';
                 break;
               case 'Perfil': // Nossa aba de configurações
